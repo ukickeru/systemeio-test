@@ -5,8 +5,8 @@ FROM composer:latest AS composer
 FROM ${PHP_IMAGE} AS php
 
 RUN apt-get update && \
-    apt-get install -y git libzip-dev zip && \
-    docker-php-ext-install zip
+    apt-get install -y git libzip-dev zip libpq-dev postgresql && \
+    docker-php-ext-install zip pgsql pdo_pgsql
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
