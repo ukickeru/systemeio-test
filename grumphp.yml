@@ -1,0 +1,20 @@
+grumphp:
+    ignore_unstaged_changes: false
+    process_timeout: 60
+    tasks:
+        git_blacklist:
+            keywords:
+                - "die("
+                - "var_dump("
+                - "print_f("
+                - "dump("
+                - "exit;"
+            triggered_by: ["php"]
+        phpstan:
+            configuration: "phpstan.neon"
+        phpcsfixer:
+            config: ".php-cs-fixer.dist.php"
+        phplint:
+        phpunit:
+            testsuite: Project
+        yamllint:
