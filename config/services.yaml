@@ -12,5 +12,10 @@ services:
             - '../src/**/Model/Entity/'
             - '../src/Kernel.php'
 
+    # Third-party payment processors
+    Systemeio\TestForCandidates\PaymentProcessor\PaypalPaymentProcessor: ~
+    Systemeio\TestForCandidates\PaymentProcessor\StripePaymentProcessor: ~
+
+    # DataFixtures
     DataFixtures\:
         resource: '../fixtures/'
