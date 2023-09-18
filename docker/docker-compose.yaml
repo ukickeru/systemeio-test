@@ -1,0 +1,55 @@
+version: '3'
+
+services:
+
+    nginx:
+        image: nginx:stable-alpine
+        volumes:
+            - ../:/var/www/app
+            # Just override default config without using sites-available/enabled
+            - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+        networks:
+            - net
+        ports:
+            - ${NGINX_PORTS}
+        depends_on:
+            - php
+
+    php:
+        build:
+            context: ../
+            dockerfile: ./docker/Dockerfile
+            args:
+                PHP_IMAGE: ${PHP_IMAGE}
+                XDEBUG_VERSION: ${XDEBUG_VERSION}
+        environment:
+            APP_DOMAIN: ${APP_DOMAIN}
+            DATABASE_URL: "postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@database/${POSTGRES_DB}?serverVersion=${POSTGRES_VERSION}&charset=utf8"
+        volumes:
+            - ../:/var/www/app
+        networks:
+            - net
+        extra_hosts:
+            - host.docker.internal:host-gateway # For XDebug
+        depends_on:
+            - database
+
+    database:
+        image: postgres:${POSTGRES_VERSION}-alpine
+        environment:
+            POSTGRES_DB: ${POSTGRES_DB}
+            POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+            POSTGRES_USER: ${POSTGRES_USER}
+        volumes:
+            - database_data:/var/lib/postgresql/data:rw
+        networks:
+            - net
+        ports:
+            - "5433:5432"
+
+volumes:
+    database_data:
+
+networks:
+    net:
+        driver: bridge

@@ -1,4 +1,5 @@
 parameters:
+    app.domain: '%env(APP_DOMAIN)%'
 
 services:
     _defaults:

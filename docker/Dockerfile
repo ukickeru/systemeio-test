@@ -8,6 +8,11 @@ RUN apt-get update && \
     apt-get install -y git libzip-dev zip libpq-dev postgresql && \
     docker-php-ext-install zip pgsql pdo_pgsql
 
+ARG XDEBUG_VERSION
+RUN pecl install xdebug-${XDEBUG_VERSION} && docker-php-ext-enable xdebug
+
+COPY ./docker/php/xdebug.ini "${PHP_INI_DIR}/conf.d/xdebug.ini"
+
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 RUN mkdir -p /var/www/app && \
