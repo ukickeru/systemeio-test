@@ -2,6 +2,7 @@
 
 namespace App\Payments\Model\Entity;
 
+use App\Payments\Model\CouponVisitor\DiscountCalculationVisitorInterface;
 use App\Payments\Model\Entity\Coupon\AbsoluteCoupon;
 use App\Payments\Model\Entity\Coupon\PercentCoupon;
 use App\Shared\Entity\IdTrait;
@@ -35,4 +36,6 @@ abstract class Coupon
 
         return $this;
     }
+
+    abstract public function acceptDiscountCalculationVisitor(DiscountCalculationVisitorInterface $couponVisitor): \Closure;
 }

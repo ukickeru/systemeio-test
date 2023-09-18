@@ -2,6 +2,7 @@
 
 namespace App\Payments\Model\Entity\Coupon;
 
+use App\Payments\Model\CouponVisitor\DiscountCalculationVisitorInterface;
 use App\Payments\Model\Entity\Coupon;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -29,5 +30,10 @@ class PercentCoupon extends Coupon
         $this->discountPercent = $discountPercent;
 
         return $this;
+    }
+
+    public function acceptDiscountCalculationVisitor(DiscountCalculationVisitorInterface $couponVisitor): \Closure
+    {
+        return $couponVisitor->visitPercent($this);
     }
 }
