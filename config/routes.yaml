@@ -1,5 +1,5 @@
-controllers:
-    resource:
-        path: ../src/Controller/
-        namespace: App\Controller
-    type: attribute
+payments:
+    resource: '../src/Payments/REST/'
+    type: 'attribute'
+    prefix: '/payments'
+    name_prefix: 'payments_'

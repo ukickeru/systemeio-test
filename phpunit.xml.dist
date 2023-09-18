@@ -18,8 +18,14 @@
     </php>
 
     <testsuites>
-        <testsuite name="Project Test Suite">
+        <!-- Can be used w/o additional env configuring (e.g. by git hooks) -->
+        <testsuite name="Project">
             <directory>tests</directory>
+            <exclude>tests/E2E</exclude>
+        </testsuite>
+        <!-- Should be called with env configuring (e.g. from configured CI/CD pipeline) -->
+        <testsuite name="E2E">
+            <directory>tests/E2E</directory>
         </testsuite>
     </testsuites>
 

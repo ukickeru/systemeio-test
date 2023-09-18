@@ -1,0 +1,108 @@
+{
+	"info": {
+		"_postman_id": "a5adc436-0f4b-4b86-8f3d-d5e995ff11c0",
+		"name": "Systeme.IO",
+		"description": "Check collection variables to configure API for your needs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16897430"
+	},
+	"item": [
+		{
+			"name": "Payments",
+			"item": [
+				{
+					"name": "Query",
+					"item": [
+						{
+							"name": "Calculate price",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"productId\": 1,\n    \"taxNumber\": \"DE123456789\",\n    \"couponCode\": \"PER1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/payments/calculate-price",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"payments",
+										"calculate-price"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Command",
+					"item": [
+						{
+							"name": "Pay",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"productId\": 1,\n    \"taxNumber\": \"DE123456789\",\n    \"couponCode\": \"ABS1\",\n    \"paymentProcessor\": \"PAYPAL\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/payments/pay",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"payments",
+										"pay"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"description": "Payments domain"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://app.localhost:8085",
+			"type": "string"
+		}
+	]
+}

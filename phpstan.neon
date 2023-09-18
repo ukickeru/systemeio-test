@@ -9,3 +9,6 @@ parameters:
         - public/
         - src/
         - tests/
+    checkGenericClassInNonGenericObjectType: false
+    ignoreErrors:
+        - '#^Method App\\.+::jsonSerialize\(\) return type has no value type specified in iterable type.*$#'
