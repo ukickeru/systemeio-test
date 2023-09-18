@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Payments\Entity;
+namespace App\Payments\Model\Entity;
 
 use App\Shared\Entity\IdTrait;
 use Doctrine\DBAL\Types\Types;
@@ -14,6 +14,9 @@ class Product
     #[ORM\Column(type: Types::STRING)]
     private string $name;
 
+    /**
+     * @var int price in cents
+     */
     #[ORM\Column(type: Types::INTEGER, options: ['unsigned' => true])]
     private int $price;
 

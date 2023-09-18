@@ -2,7 +2,7 @@
 
 namespace App\Payments\Repository;
 
-use App\Payments\Entity\Coupon;
+use App\Payments\Model\Entity\Coupon;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 

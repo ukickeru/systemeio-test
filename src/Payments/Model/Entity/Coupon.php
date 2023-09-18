@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Payments\Entity;
+namespace App\Payments\Model\Entity;
 
-use App\Payments\Entity\Coupon\AbsoluteCoupon;
-use App\Payments\Entity\Coupon\PercentCoupon;
+use App\Payments\Model\Entity\Coupon\AbsoluteCoupon;
+use App\Payments\Model\Entity\Coupon\PercentCoupon;
 use App\Shared\Entity\IdTrait;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;

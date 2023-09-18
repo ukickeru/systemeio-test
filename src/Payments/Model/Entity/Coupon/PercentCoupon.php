@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Payments\Entity\Coupon;
+namespace App\Payments\Model\Entity\Coupon;
 
-use App\Payments\Entity\Coupon;
+use App\Payments\Model\Entity\Coupon;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 

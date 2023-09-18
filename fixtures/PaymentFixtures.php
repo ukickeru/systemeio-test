@@ -2,10 +2,10 @@
 
 namespace DataFixtures;
 
-use App\Payments\Entity\Coupon;
-use App\Payments\Entity\Coupon\AbsoluteCoupon;
-use App\Payments\Entity\Coupon\PercentCoupon;
-use App\Payments\Entity\Product;
+use App\Payments\Model\Entity\Coupon;
+use App\Payments\Model\Entity\Coupon\AbsoluteCoupon;
+use App\Payments\Model\Entity\Coupon\PercentCoupon;
+use App\Payments\Model\Entity\Product;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 
